@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco API - Interface</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>🏦 Desafio Bank DIO FastAPI</h1>
+
+    <div id="login-section" class="card">
+        <h2>🔐 Login</h2>
+        <p>Insira o seu ID da sua conta para Acessar</p>
+        <input type="number" id="login-user-id" placeholder="ID da Conta (ex: 1)">
+        <button onclick="fazerLogin()">Entrar</button>
+        <div id="login-error" class="error"></div>
+    </div>
+
+    <div id="dashboard-section" class="hidden">
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h2>👋 Olá, Utilizador <span id="display-user-id"></span></h2>
+                <button class="secondary" onclick="fazerLogout()" style="width: auto;">Sair</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>📂 As Minhas Contas</h3>
+            <button onclick="carregarContas()">Atualizar Lista de Contas</button>
+            <div id="accounts-list">
+                <p>Carregue no botão para ver as contas.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>💸 Nova Transação</h3>
+            <input type="number" id="tx-account-id" placeholder="ID da Conta">
+            <input type="number" id="tx-amount" placeholder="Valor (ex: 100.50)">
+            <select id="tx-type">
+                <option value="deposit">Depósito</option>
+                <option value="withdrawal">Levantamento</option>
+            </select>
+            <button onclick="criarTransacao()">Confirmar Transação</button>
+            <div id="tx-result"></div>
+        </div>
+
+        <div class="card">
+            <h3>📜 Extrato da Conta</h3>
+            <input type="number" id="extract-account-id" placeholder="ID da Conta para Extrato">
+            <button onclick="verExtrato()">Ver Transações</button>
+            <div id="transactions-list"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
